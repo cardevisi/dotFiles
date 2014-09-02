@@ -41,17 +41,6 @@ b() {
 	echo 'back' $total 'times...';
 }
 
-u() {
-	if [ "$1" -gt "10" ] # [-gt] is greater than
-	then
-		return;
-	fi
-	
-	for ((i=0; i<$1 ; i++));
-	do
-	   cd -;
-	done
-}
 
 #************************************************************************
 # No Color
