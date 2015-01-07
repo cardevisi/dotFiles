@@ -42,7 +42,9 @@ b() {
 }
 
 bitc() {
-	call='curl --user cardevisi:'"$1"' https://api.bitbucket.org/1.0/repositories/ --data name='"$2";
+	username=$1
+	password=$2
+	call='curl --user '"$username"':'"$password"' https://api.bitbucket.org/1.0/repositories/ --data name='"$3";
 	echo `$call`;
 }
 
