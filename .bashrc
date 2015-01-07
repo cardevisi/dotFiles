@@ -44,8 +44,8 @@ b() {
 bitc() {
 	username=$1
 	password=$2
-	call='curl --user '"$username"':'"$password"' https://api.bitbucket.org/1.0/repositories/ --data name='"$3";
-	echo `$call`;
+	exec_curl='curl --user '"$username"':'"$password"' https://api.bitbucket.org/1.0/repositories/ --data name='"$3";
+	echo `$exec_curl`;
 }
 
 
