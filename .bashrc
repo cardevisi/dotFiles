@@ -41,6 +41,11 @@ b() {
 	echo 'back' $total 'times...';
 }
 
+bitc() {
+	call='curl --user cardevisi:'"$1"' https://api.bitbucket.org/1.0/repositories/ --data name='"$2";
+	echo `$call`;
+}
+
 
 #************************************************************************
 # No Color
