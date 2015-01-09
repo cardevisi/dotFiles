@@ -48,6 +48,7 @@ bitc() {
 	echo `$exec_curl`;
 }
 
+
 hubc() {
 	repositoty_name=$1
 	
