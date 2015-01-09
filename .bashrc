@@ -50,20 +50,20 @@ bitc() {
 
 
 hubc() {
-	repositoty_name=$1
+	repository_name=$1
 	
 	dir_name=`basename $(pwd)`
 	
 	if [ "$repositoty_name" = "" ]; then 
 		echo "Repo name (hit enter to use '$dir_name')?"
-		read repositoty_name
+		read repository_name
 	fi
 
-	if [ "$repositoty_name" = "" ]; then 
+	if [ "$repository_name" = "" ]; then 
 		repositoty_name="$dir_name"
 	fi
 
-	exec_curl='curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repositoty_name'"}
+	exec_curl='curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repository_name'"}
 	echo `$exec_curl`;
 }
 
