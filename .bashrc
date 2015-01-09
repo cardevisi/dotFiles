@@ -42,9 +42,42 @@ b() {
 }
 
 bitc() {
+	
 	username=$1
 	password=$2
-	exec_curl='curl --user '"$username"':'"$password"' https://api.bitbucket.org/1.0/repositories/ --data name='"$3";
+	repository_name=$3
+	dir_name=`basename $(pwd)`
+
+	if [ "$username" == "" ]; then
+		echo "Enter with your username:"
+		read username;
+	fi
+
+	if [ "$username" == "" ]; then
+		echo "Exited! Your username is empty"
+		return;
+	fi
+
+	if [ "$password" == "" ]; then
+		echo "Enter with your password:"
+		read password;
+	fi
+
+	if [ "$password" == "" ]; then
+		echo "Exited! Your password is empty"
+		return;
+	fi
+
+	if [ "$repository_name" = "" ]; then 
+		echo "Repo name (hit enter to use '$dir_name')?"
+		read repository_name
+	fi
+
+	if [ "$repository_name" = "" ]; then 
+		repository_name="$dir_name"
+	fi
+
+	exec_curl='curl --user '"$username"':'"$password"' https://api.bitbucket.org/1.0/repositories/ --data name='"$repository_name";
 	echo `$exec_curl`;
 }
 
