@@ -43,42 +43,49 @@ b() {
 
 bitc() {
 	
-	username=$1
-	password=$2
-	repository_name=$3
-	dir_name=`basename $(pwd)`
+	username=$1;
+	password=$2;
+	repository_name=$3;
+	dir_name=`basename $(pwd)`;
 
 	if [ "$username" == "" ]; then
-		echo "Enter with your username:"
-		read username;
+		echo "Enter with your username:";
+		read -s username;
 	fi
 
 	if [ "$username" == "" ]; then
-		echo "Exited! Your username is empty"
+		echo "Exited! Your username is empty";
 		return;
 	fi
 
 	if [ "$password" == "" ]; then
-		echo "Enter with your password:"
-		read password;
+		echo "Enter with your password:";
+		read -s password; # read -s to password
 	fi
 
 	if [ "$password" == "" ]; then
-		echo "Exited! Your password is empty"
+		echo "Exited! Your password is empty";
 		return;
 	fi
 
 	if [ "$repository_name" = "" ]; then 
-		echo "Repo name (hit enter to use '$dir_name')?"
-		read repository_name
+		echo "Repo name (hit enter to use '$dir_name')?";
+		read repository_name;
 	fi
 
 	if [ "$repository_name" = "" ]; then 
-		repository_name="$dir_name"
+		repository_name="$dir_name";
 	fi
 
 	exec_curl='curl --user '"$username"':'"$password"' https://api.bitbucket.org/1.0/repositories/ --data name='"$repository_name";
+	exec_git_a='git init';
+	exec_git_b='git remote add origin https://'"$username"'@bitbucket.org/'"$username"'/'"$repository_name"'.git';
+	exec_sh_a='touch .gitconfig';
+	
 	echo `$exec_curl`;
+	echo `$exec_git_a`;
+	echo `$exec_git_b`;
+	echo `$exec_sh_a`;
 }
 
 
