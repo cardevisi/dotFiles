@@ -6,7 +6,7 @@
     username = cardevisi
   [user]
     email = cardevisi
-    name = Carlos Augusto Silveira de Oliveira
+    name = Carlos Augusto
 
   [alias]
     undopush = push -f origin HEAD^:master
