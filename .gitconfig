@@ -1,0 +1,34 @@
+  [user]
+    email = cardevisi
+    name = Casi
+
+  [credential]
+    username = cardevisi
+  [user]
+    email = cardevisi
+    name = Carlos Augusto Silveira de Oliveira
+
+  [alias]
+    undopush = push -f origin HEAD^:master
+    undomerge = reset --hard HEAD@{1}
+    unchanged = git update-index --assume-unchanged
+    a = add .
+    b = branch
+    bs = !git b -a
+    c = checkout
+    cmt = commit -am
+    st = status
+    track = "!f() { git checkout --track -B $1 origin/$1; }; f"
+    f = !git c master && git fetch -p && git fetch --all && git update
+    graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+    
+# Use 'origin' as the default remote on the 'master' branch in all cases
+  [branch "master"]
+    remote = origin
+    merge = refs/heads/master
+  
+  [http]
+    sslVerify = false
+    
+  [url "https://"]
+    insteadOf = git://
