@@ -92,21 +92,38 @@ bitc() {
 
 
 hubc() {
-	repository_name=$1
+	
+	username=$1;
+	repository_name=$2;
+
+	if [ "$username" == "" ]; then
+		echo "Enter with your username:";
+		read -s username;
+	fi
+
+	if [ "$username" == "" ]; then
+		echo "Exited! Your username is empty";
+		return;
+	fi
 	
 	dir_name=`basename $(pwd)`
 	
-	if [ "$repositoty_name" = "" ]; then 
+	if [ "$repository_name" = "" ]; then 
 		echo "Repo name (hit enter to use '$dir_name')?"
 		read repository_name
 	fi
 
 	if [ "$repository_name" = "" ]; then 
-		repositoty_name="$dir_name"
+		repository_name="$dir_name"
 	fi
 
-	exec_curl='curl -u "$username:$token" https://api.github.com/user/repos -d '{"name":"'$repository_name'"}
-	echo `$exec_curl`;
+	
+	#curl -u '"$username"' https://api.github.com/user/repos?page=0
+ 	#curl -u '"$username"' https://api.github.com/user/repos -d {"name": "teste", "description": "This is your first repository","homepage": "https://github.com","private": false,"has_issues": true,"has_wik i": true,"has_downloads": true}
+ 	#curl -u '"$username"' https://api.github.com/user/repos -d '{"name":"teste"}'
+	
+	exec_curl='curl -u '"$username"' https://api.github.com/user/repos -d {"name":"'"$repository_name"'"}'
+ 	echo `$exec_curl`;
 }
 
 
