@@ -208,10 +208,10 @@ alias ggr='git graph'
 #************************************************************************
 #Jenkins commands
 #************************************************************************
-alias jstop='"cd C:\Program Files (x86)\Jenkins\; jenkins.exe stop;"'
-alias jstart='"C:\Program Files (x86)\Jenkins\jenkins.exe start"'
-alias jrestart='"C:\Program Files (x86)\Jenkins\jenkins.exe restart"'
-alias djenkins='cd C:\Program Files (x86)\Jenkins'
+alias jstop='cd /c/CASIFILES/DEV/jenkins/; java -jar jenkins.war;'
+alias jstart='cd /c/CASIFILES/DEV/jenkins/; java -jar jenkins.war --httpPort=9090 &'
+alias jrestart='cd /c/CASIFILES/DEV/jenkins/; java -jar jenkins.war'
+alias djenkins='cd /c/CASIFILES/DEV/jenkins/; java -jar jenkins.war;'
 
 #************************************************************************
 # PS1 colored with username, machine name, count, timestamp, branch name and git status
