@@ -204,7 +204,8 @@ alias gx='gitx --all'
 alias got='git '
 alias get='git '
 alias ggr='git graph'
-alias hism= 'git reset --hard origin/master'
+alias hism='git reset --hard origin/master'
+alias calc='calc &'
 
 #************************************************************************
 #Jenkins commands
